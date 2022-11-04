@@ -14,13 +14,16 @@ function App() {
     user.id = data.length + 1
     setData([...data, user])
   }
+  const deleteUser = (id) => {
+    setData(data.filter((user) => user.id !== id))
+  }
   return (
     <div className="container">
       <h1>CRUD App with Hooks</h1>
       <div className="flex-row">
         <div className="flex-large">
           <h2>Add user</h2>
-          <AddUserForm addUser={addUser}/>
+          <AddUserForm addUser={addUser} deleteUser={deleteUser}/>
         </div>
         <div className="flex-large">
           <h2>View users</h2>
